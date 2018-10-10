@@ -128,8 +128,8 @@
 		</style>
 	</head>
 	<body>
-        <video id="video" src="seinfeld.mp4" poster="./coffee.gif" preload></video>
-
+        <video id="video" src="seinfeld.mp4" style="display:none;" preload></video>
+        <img id="coffee" src="./coffee.gif"/>
         <div id="party-button" class="glow" onclick="begin();">
             <div class="glow-text">DO YOU LIKE TO PARTY?</div>
         </div>
@@ -171,6 +171,9 @@
         
         
 		<script>
+            document.getElementById('video').addEventListener("loadedmetadata", function(){
+                document.getElementById('coffee').remove();
+            }, false);
             function begin(){
             document.getElementById('party-button').remove();
             document.getElementById('video').style.display="none";
