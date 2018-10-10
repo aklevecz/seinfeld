@@ -128,6 +128,7 @@
 		</style>
 	</head>
 	<body>
+        <h1 id="hi" style="color:white;position:absolute;margin:40px;">hi</h1>
         <video id="video" src="seinfeld.mp4" style="display:none;" preload="auto"></video>
         <img id="coffee" src="https://media.giphy.com/media/ceeFbVxiZzMBi/giphy.gif"/>
         <div id="party-button" class="glow" style="display:none"; onclick="begin();">
@@ -171,27 +172,27 @@
         
         
 		<script>
-            //checkforVideo();
-            var vid = document.getElementById("video");
-            vid.addEventListener("canplaythrough", function(){document.getElementById('party-button').style.display='block'})
-            // function checkforVideo() {
-            //     var b = setInterval(()=>{
-            //         console.log(vid.readyState);
-            //         if(vid.readyState >= 4){
-            //             vid.oncanplaythrough = function() {
-            //                 console.log('hi')
-            //                 document.getElementById('party-button').style.display='block';
-            //             };
-            //             clearInterval(b);
-            //             //begin();
-            //         }                   
-            //     },500);
-            // }
+            document.getElementById('coffee').setAttribute('width', window.innerWidth);
+            vid = document.getElementById('video');
+            setTimeout(checkforVideo, 5000);
+            function checkforVideo() {
+                var b = setInterval(()=>{
+                    console.log(vid.readyState);
+                    if(vid.readyState >= 4){
+                        console.log('hi')
+
+                        document.getElementById('party-button').style.display='block';
+                        clearInterval(b);
+                        //begin();
+                    }                   
+                },500);
+            }
 
             function begin(){
             document.getElementById('party-button').remove();
             document.getElementById('video').style.display="none";
             document.getElementById('coffee').remove();
+            document.getElementById('hi').remove();
             document.getElementById('text').style.display="block";
             var camera, scene, renderer;
 			var texture_placeholder,
