@@ -129,8 +129,8 @@
 	</head>
 	<body>
         <video id="video" src="seinfeld.mp4" style="display:none;" preload></video>
-        <img id="coffee" src="./coffee.gif"/>
-        <div id="party-button" class="glow" onclick="begin();">
+        <img id="coffee" src="./jerry.png"/>
+        <div id="party-button" class="glow" style="display:none"; onclick="begin();">
             <div class="glow-text">DO YOU LIKE TO PARTY?</div>
         </div>
 
@@ -176,17 +176,17 @@
                 var b = setInterval(()=>{
                     console.log(document.getElementById('video').readyState);
                     if(document.getElementById('video').readyState >= 3){
-                        document.getElementById('coffee').remove();
+                        document.getElementById('party-button').style.display='block';
 
                         clearInterval(b);
-                        begin();
+                        //begin();
                     }                   
                 },500);
             }
             function begin(){
             document.getElementById('party-button').remove();
             document.getElementById('video').style.display="none";
-
+            document.getElementById('coffee').remove();
             document.getElementById('text').style.display="block";
             var camera, scene, renderer;
 			var texture_placeholder,
