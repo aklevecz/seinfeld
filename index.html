@@ -171,9 +171,18 @@
         
         
 		<script>
-            document.getElementById('video').addEventListener("loadedmetadata", function(){
-                document.getElementById('coffee').remove();
-            }, false);
+            checkforVideo();
+            function checkforVideo() {
+                var b = setInterval(()=>{
+                    console.log(document.getElementById('video').readyState);
+                    if(document.getElementById('video').readyState >= 3){
+                        document.getElementById('coffee').remove();
+
+                        clearInterval(b);
+                        begin();
+                    }                   
+                },500);
+            }
             function begin(){
             document.getElementById('party-button').remove();
             document.getElementById('video').style.display="none";
