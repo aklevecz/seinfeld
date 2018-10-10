@@ -171,17 +171,23 @@
         
         
 		<script>
-            checkforVideo();
-            function checkforVideo() {
-                var b = setInterval(()=>{
-                    console.log(document.getElementById('video').readyState);
-                    if(document.getElementById('video').readyState >= 4){
-                        document.getElementById('party-button').style.display='block';
-                        clearInterval(b);
-                        //begin();
-                    }                   
-                },500);
-            }
+            //checkforVideo();
+            var vid = document.getElementById("video");
+            video.addEventListener("canplaythrough", function(){document.getElementById('party-button').style.display='block'})
+            // function checkforVideo() {
+            //     var b = setInterval(()=>{
+            //         console.log(vid.readyState);
+            //         if(vid.readyState >= 4){
+            //             vid.oncanplaythrough = function() {
+            //                 console.log('hi')
+            //                 document.getElementById('party-button').style.display='block';
+            //             };
+            //             clearInterval(b);
+            //             //begin();
+            //         }                   
+            //     },500);
+            // }
+
             function begin(){
             document.getElementById('party-button').remove();
             document.getElementById('video').style.display="none";
