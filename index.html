@@ -45,6 +45,9 @@
                 margin-top: 20%;
                 line-height:100px;
                 font-size:22px;
+                position:absolute;
+                left:42px;
+                top:0px;
             }
 
             @keyframes glowing {
@@ -125,7 +128,7 @@
 		</style>
 	</head>
 	<body>
-        <video id="video" src="seinfeld.mp4" style="display:none;" preload></video>
+        <video id="video" src="seinfeld.mp4" poster="./coffee.gif" preload></video>
 
         <div id="party-button" class="glow" onclick="begin();">
             <div class="glow-text">DO YOU LIKE TO PARTY?</div>
@@ -170,6 +173,7 @@
 		<script>
             function begin(){
             document.getElementById('party-button').remove();
+            document.getElementById('video').style.display="none";
 
             document.getElementById('text').style.display="block";
             var camera, scene, renderer;
